@@ -1,8 +1,23 @@
 import type { PulseColor, TimeSlot, Visibility } from '../types';
+
 export const PULSE_COLORS: PulseColor[] = ['Blue','Red','Yellow','Green','Purple','White','Black','Orange','Pink','Gray'];
 export const MOODS = ['静けさ','疲れ','期待','不安','余白','孤独','やさしさ','熱','透明','眠気'];
 export const PLACE_CATEGORIES = ['home','station','school','office','street','cafe','train','park','other'];
 export const VISIBILITIES: Visibility[] = ['anonymousPublic','private'];
 export const TIME_SLOTS: TimeSlot[] = ['morning','day','evening','night','lateNight'];
-export const COLOR_HEX: Record<PulseColor, string> = { Blue:'#6aa7ff', Red:'#ff6b7a', Yellow:'#ffe08a', Green:'#88d8a3', Purple:'#b79cff', White:'#f6f7fb', Black:'#151823', Orange:'#ffb26b', Pink:'#ff9fc7', Gray:'#9aa4b2' };
-export const COLOR_GRADIENTS: Record<PulseColor, string> = { Blue:'linear-gradient(135deg,#07142d,#2367d8 55%,#c5dcff)', Red:'linear-gradient(135deg,#25080f,#a8324d 55%,#ffd0d6)', Yellow:'linear-gradient(135deg,#201600,#b8891b 55%,#fff2bd)', Green:'linear-gradient(135deg,#061d17,#2b8d6a 55%,#c9ffe3)', Purple:'linear-gradient(135deg,#120928,#5c3bb9 55%,#dfd2ff)', White:'linear-gradient(135deg,#111827,#dfe7f5 55%,#ffffff)', Black:'linear-gradient(135deg,#02040a,#151823 65%,#475569)', Orange:'linear-gradient(135deg,#221006,#c45c21 55%,#ffd6a6)', Pink:'linear-gradient(135deg,#220817,#be477f 55%,#ffd4e5)', Gray:'linear-gradient(135deg,#0b1220,#536174 55%,#d9e1ec)' };
+
+export const PULSE_COLOR_META: Record<PulseColor, { label: PulseColor; hex: string; gradient: string }> = {
+  Blue: { label: 'Blue', hex: '#4F7CFF', gradient: 'linear-gradient(135deg, #1A2CFF, #73D7FF)' },
+  Red: { label: 'Red', hex: '#E94444', gradient: 'linear-gradient(135deg, #7F1D1D, #FB7185)' },
+  Yellow: { label: 'Yellow', hex: '#FACC15', gradient: 'linear-gradient(135deg, #F59E0B, #FEF08A)' },
+  Green: { label: 'Green', hex: '#34D399', gradient: 'linear-gradient(135deg, #047857, #6EE7B7)' },
+  Purple: { label: 'Purple', hex: '#7C3AED', gradient: 'linear-gradient(135deg, #4C1D95, #A78BFA)' },
+  White: { label: 'White', hex: '#F8FAFC', gradient: 'linear-gradient(135deg, #CBD5E1, #FFFFFF)' },
+  Black: { label: 'Black', hex: '#020617', gradient: 'linear-gradient(135deg, #020617, #334155)' },
+  Orange: { label: 'Orange', hex: '#FB923C', gradient: 'linear-gradient(135deg, #C2410C, #FDBA74)' },
+  Pink: { label: 'Pink', hex: '#F472B6', gradient: 'linear-gradient(135deg, #BE185D, #FBCFE8)' },
+  Gray: { label: 'Gray', hex: '#64748B', gradient: 'linear-gradient(135deg, #334155, #CBD5E1)' },
+};
+
+export const COLOR_HEX: Record<PulseColor, string> = Object.fromEntries(PULSE_COLORS.map((color) => [color, PULSE_COLOR_META[color].hex])) as Record<PulseColor, string>;
+export const COLOR_GRADIENTS: Record<PulseColor, string> = Object.fromEntries(PULSE_COLORS.map((color) => [color, PULSE_COLOR_META[color].gradient])) as Record<PulseColor, string>;
