@@ -34,6 +34,19 @@ export async function listUserPulses(uid: string, max = 20): Promise<Pulse[]> {
   return snap.docs.map((d) => d.data() as Pulse).sort((a, b) => timestampMillis(b.createdAt) - timestampMillis(a.createdAt)).slice(0, max);
 }
 
+export async function listPublicPulseFragments(input: { excludeUid?: string; dateKey?: string; max?: number } = {}): Promise<Pulse[]> {
+  const clients = getFirebaseClients();
+  if (!clients) throw new Error('Firebase is not configured.');
+  const max = input.max ?? 18;
+  const q = query(collection(clients.db, 'pulses'), where('visibility', '==', 'anonymousPublic'), limit(Math.max(max * 4, 40)));
+  const snap = await getDocs(q);
+  return snap.docs
+    .map((d) => d.data() as Pulse)
+    .filter((pulse) => pulse.uid !== input.excludeUid && (!input.dateKey || pulse.dateKey === input.dateKey) && pulse.moderation?.status !== 'hidden')
+    .sort((a, b) => timestampMillis(b.createdAt) - timestampMillis(a.createdAt))
+    .slice(0, max);
+}
+
 export async function findCandidatePulses(input: Pick<Pulse, 'dateKey'|'visibility'|'mood'|'timeSlot'|'placeCategory'>, max = 40): Promise<Pulse[]> {
   const clients = getFirebaseClients();
   if (!clients) throw new Error('Firebase is not configured.');

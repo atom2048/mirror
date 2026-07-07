@@ -146,5 +146,16 @@ export const dictionary = {
   "status.googleLinking": "Googleアカウントを開いています。",
   "status.googleRedirect": "ポップアップがブロックされたため、Googleのリダイレクト認証に切り替えます。",
   "status.googleLinked": "Googleで保存継続できるようになりました。",
-  "error.googleSignIn": "Google連携を開始できませんでした。Firebase AuthのGoogleプロバイダと承認済みドメインを確認してください。"
+  "error.googleSignIn": "Google連携を開始できませんでした。Firebase AuthのGoogleプロバイダと承認済みドメインを確認してください。",
+  "fragments.kicker": "ANONYMOUS RESONANCE",
+  "fragments.title": "世界のどこかの断片",
+  "fragments.body": "名前も顔も出さずに、近い色や気分を持つ公開Pulseだけを静かに眺められます。",
+  "fragments.empty": "まだ見える断片は少ないです。あなたのPulseが、最初の反射になるかもしれません。",
+  "fragments.open": "匿名の断片を見る",
+  "fragments.privacy": "ここに表示されるのは匿名公開Pulseだけです。uid、名前、Googleアカウント、正確な位置情報は表示しません。",
+  "fragments.lockedTitle": "匿名で同期すると見られます",
+  "fragments.lockedBody": "他の人の断片を見るにはログインが必要ですが、Google連携は不要です。匿名のまま始められます。",
+  "fragments.unlock": "匿名で見る",
+  "pulse.ownFragment": "YOUR PULSE",
+  "pulse.anonymousFragment": "ANONYMOUS FRAGMENT"
 } satisfies Dictionary;

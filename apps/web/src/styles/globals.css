@@ -12,7 +12,7 @@ button, input, select, textarea { font: inherit; }
 .field:focus { border-color: rgba(143,183,255,.72); box-shadow: 0 0 0 3px rgba(143,183,255,.12); }
 select.field option { background: #0b1020; color: white; }
 
-.mirror-wordmark { font-weight: 500; letter-spacing: .34em; color: #f8fbff; text-shadow: 0 0 18px rgba(115, 215, 255, .34), 0 0 34px rgba(124, 58, 237, .2); }
+.mirror-wordmark { font-weight: 500; letter-spacing: .42em; color: transparent; background: linear-gradient(90deg, #F8FAFF 0%, #A7C6FF 32%, #FFFFFF 52%, #B7C2FF 72%, #F8FAFF 100%); -webkit-background-clip: text; background-clip: text; text-shadow: 0 0 14px rgba(167,198,255,.45), 0 0 34px rgba(26,44,255,.28), 0 0 52px rgba(110,91,255,.18); }
 .color-swatch-button { min-height: 76px; border-radius: 8px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.065); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .45rem; padding: .55rem .35rem; transition: border-color .18s ease, background .18s ease, transform .18s ease, box-shadow .18s ease; }
 .color-swatch-button:hover:not(:disabled) { border-color: rgba(255,255,255,.34); background: rgba(255,255,255,.1); transform: translateY(-1px); }
 .color-swatch-button:active:not(:disabled) { transform: translateY(0) scale(.98); }
@@ -25,3 +25,9 @@ select.field option { background: #0b1020; color: white; }
 [dir="rtl"] .mirror-wordmark { letter-spacing: .3em; }
 [dir="rtl"] .field { text-align: right; }
 @media (max-width: 420px) { .mirror-wordmark { letter-spacing: .24em; } .color-swatch-button { min-height: 72px; } }
+
+.mirror-logo svg { filter: drop-shadow(0 0 16px rgba(96,126,255,.44)) drop-shadow(0 0 28px rgba(115,215,255,.16)); }
+.mirror-logo:hover .mirror-wordmark { text-shadow: 0 0 18px rgba(248,250,255,.62), 0 0 38px rgba(26,44,255,.36); }
+.mirror-fragment { position: relative; overflow: hidden; }
+.mirror-fragment::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(120deg, transparent, rgba(167,198,255,.12), transparent); transform: translateX(-80%); opacity: 0; transition: opacity .2s ease, transform .5s ease; pointer-events: none; }
+.mirror-fragment:hover::before { opacity: 1; transform: translateX(80%); }

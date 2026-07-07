@@ -146,5 +146,16 @@ export const dictionary = {
   "language.fa": "فارسی",
   "language.th": "ไทย",
   "language.tl": "Filipino",
-  "language.sw": "Kiswahili"
+  "language.sw": "Kiswahili",
+  "fragments.kicker": "ANONYMOUS RESONANCE",
+  "fragments.title": "某处的片段",
+  "fragments.body": "安静查看相近颜色和心情的公开 Pulse，不显示姓名或头像。",
+  "fragments.empty": "可见片段还很少。",
+  "fragments.open": "查看匿名片段",
+  "fragments.privacy": "这里只显示匿名公开 Pulse。",
+  "fragments.lockedTitle": "匿名同步后可查看",
+  "fragments.lockedBody": "不需要 Google。你可以保持匿名。",
+  "fragments.unlock": "匿名查看",
+  "pulse.ownFragment": "你的 PULSE",
+  "pulse.anonymousFragment": "匿名片段"
 } satisfies Dictionary;

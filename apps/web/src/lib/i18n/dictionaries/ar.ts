@@ -146,5 +146,16 @@ export const dictionary = {
   "language.fa": "فارسی",
   "language.th": "ไทย",
   "language.tl": "Filipino",
-  "language.sw": "Kiswahili"
+  "language.sw": "Kiswahili",
+  "fragments.kicker": "ANONYMOUS RESONANCE",
+  "fragments.title": "شظايا من مكان ما",
+  "fragments.body": "شاهد Pulses عامة قريبة بلا أسماء أو وجوه.",
+  "fragments.empty": "لا تزال الشظايا قليلة.",
+  "fragments.open": "افتح شظية مجهولة",
+  "fragments.privacy": "تظهر هنا Pulses عامة مجهولة فقط.",
+  "fragments.lockedTitle": "زامن كمجهول للعرض",
+  "fragments.lockedBody": "Google ليس إلزاميا. يمكنك البقاء مجهولا.",
+  "fragments.unlock": "عرض كمجهول",
+  "pulse.ownFragment": "PULSE الخاص بك",
+  "pulse.anonymousFragment": "شظية مجهولة"
 } satisfies Dictionary;

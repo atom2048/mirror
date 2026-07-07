@@ -146,5 +146,16 @@ export const dictionary = {
   "language.fa": "فارسی",
   "language.th": "ไทย",
   "language.tl": "Filipino",
-  "language.sw": "Kiswahili"
+  "language.sw": "Kiswahili",
+  "fragments.kicker": "ANONYMOUS RESONANCE",
+  "fragments.title": "Fragments from somewhere",
+  "fragments.body": "Quietly view public Pulses with nearby colors and moods. No names, faces, or follower graph.",
+  "fragments.empty": "There are only a few visible fragments yet. Yours may become the first reflection.",
+  "fragments.open": "Open anonymous fragment",
+  "fragments.privacy": "Only anonymous public Pulses appear here. uid, names, Google accounts, and precise locations are never shown.",
+  "fragments.lockedTitle": "Sync anonymously to view",
+  "fragments.lockedBody": "Viewing other fragments requires sign-in, but Google is optional. You can stay anonymous.",
+  "fragments.unlock": "View anonymously",
+  "pulse.ownFragment": "YOUR PULSE",
+  "pulse.anonymousFragment": "ANONYMOUS FRAGMENT"
 } satisfies Dictionary;

@@ -146,5 +146,16 @@ export const dictionary = {
   "language.fa": "فارسی",
   "language.th": "ไทย",
   "language.tl": "Filipino",
-  "language.sw": "Kiswahili"
+  "language.sw": "Kiswahili",
+  "fragments.kicker": "ANONYMOUS RESONANCE",
+  "fragments.title": "어딘가의 조각",
+  "fragments.body": "이름과 얼굴 없이 비슷한 색과 기분의 공개 Pulse를 조용히 봅니다.",
+  "fragments.empty": "아직 보이는 조각이 적습니다.",
+  "fragments.open": "익명 조각 보기",
+  "fragments.privacy": "익명 공개 Pulse만 표시됩니다.",
+  "fragments.lockedTitle": "익명으로 동기화하면 볼 수 있습니다",
+  "fragments.lockedBody": "Google은 필수가 아닙니다. 익명으로 유지할 수 있습니다.",
+  "fragments.unlock": "익명으로 보기",
+  "pulse.ownFragment": "내 PULSE",
+  "pulse.anonymousFragment": "익명 조각"
 } satisfies Dictionary;

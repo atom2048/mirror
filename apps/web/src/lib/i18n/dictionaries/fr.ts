@@ -146,5 +146,16 @@ export const dictionary = {
   "language.fa": "فارسی",
   "language.th": "ไทย",
   "language.tl": "Filipino",
-  "language.sw": "Kiswahili"
+  "language.sw": "Kiswahili",
+  "fragments.kicker": "ANONYMOUS RESONANCE",
+  "fragments.title": "Fragments venus d’ailleurs",
+  "fragments.body": "Voir des Pulses publics proches, sans noms ni visages.",
+  "fragments.empty": "Peu de fragments sont visibles pour l’instant.",
+  "fragments.open": "Ouvrir le fragment anonyme",
+  "fragments.privacy": "Seuls les Pulses publics anonymes apparaissent ici.",
+  "fragments.lockedTitle": "Synchronise en anonymat",
+  "fragments.lockedBody": "Google n’est pas obligatoire. Tu peux rester anonyme.",
+  "fragments.unlock": "Voir anonymement",
+  "pulse.ownFragment": "TON PULSE",
+  "pulse.anonymousFragment": "FRAGMENT ANONYME"
 } satisfies Dictionary;
