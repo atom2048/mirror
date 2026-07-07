@@ -5,8 +5,14 @@ import type { MirrorUser } from '@mirror/core';
 
 const emptyStats = { pulseCount: 0, resonanceCount: 0, mirrorCardCount: 0, activeDays: 0 };
 
-function userBase(uid: string, input?: Partial<Pick<User, 'displayName' | 'photoURL' | 'isAnonymous'>>) {
-  return {
+type UserBaseInput = Partial<Pick<User, 'displayName' | 'photoURL' | 'isAnonymous'>>;
+
+function compact<T extends Record<string, unknown>>(value: T): Partial<T> {
+  return Object.fromEntries(Object.entries(value).filter(([, item]) => item !== undefined)) as Partial<T>;
+}
+
+function userBase(uid: string, input?: UserBaseInput) {
+  return compact({
     id: uid,
     displayName: input?.displayName || 'anonymous mirror',
     photoURL: input?.photoURL || undefined,
@@ -15,7 +21,7 @@ function userBase(uid: string, input?: Partial<Pick<User, 'displayName' | 'photo
     blockedUserIds: [],
     mutedUserIds: [],
     stats: emptyStats,
-  };
+  });
 }
 
 export async function upsertUser(user: User): Promise<void> {
@@ -25,7 +31,7 @@ export async function upsertUser(user: User): Promise<void> {
   const snap = await getDoc(ref);
   const base = userBase(user.uid, user);
   if (snap.exists()) {
-    await setDoc(ref, { displayName: base.displayName, photoURL: base.photoURL, isAnonymous: base.isAnonymous, updatedAt: serverTimestamp(), lastActiveAt: serverTimestamp() }, { merge: true });
+    await setDoc(ref, compact({ displayName: base.displayName, photoURL: base.photoURL, isAnonymous: base.isAnonymous, updatedAt: serverTimestamp(), lastActiveAt: serverTimestamp() }), { merge: true });
   } else {
     await setDoc(ref, { ...base, createdAt: serverTimestamp(), updatedAt: serverTimestamp(), lastActiveAt: serverTimestamp() });
   }

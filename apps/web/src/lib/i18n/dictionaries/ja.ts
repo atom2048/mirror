@@ -142,5 +142,9 @@ export const dictionary = {
   "language.fa": "فارسی",
   "language.th": "ไทย",
   "language.tl": "Filipino",
-  "language.sw": "Kiswahili"
+  "language.sw": "Kiswahili",
+  "status.googleLinking": "Googleアカウントを開いています。",
+  "status.googleRedirect": "ポップアップがブロックされたため、Googleのリダイレクト認証に切り替えます。",
+  "status.googleLinked": "Googleで保存継続できるようになりました。",
+  "error.googleSignIn": "Google連携を開始できませんでした。Firebase AuthのGoogleプロバイダと承認済みドメインを確認してください。"
 } satisfies Dictionary;

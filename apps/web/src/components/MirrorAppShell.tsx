@@ -74,8 +74,11 @@ export function MirrorAppShell({ view, id }: { view: MirrorView; id?: string }) 
 
   async function connectGoogle() {
     try {
-      setStatus({ kind:'loading', message:t('status.googleLinking') });
       const next = await signInWithGoogle();
+      if (!next) {
+        setStatus({ kind:'loading', message:t('status.googleRedirect') });
+        return;
+      }
       await refresh(next.uid);
       setStatus({ kind:'done', message:t('status.googleLinked') });
     } catch (e) {
