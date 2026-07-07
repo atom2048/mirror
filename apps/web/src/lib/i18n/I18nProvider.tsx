@@ -37,7 +37,11 @@ export function I18nProvider({ children }: { children: ReactNode }) {
       locale,
       setLocale,
       dir,
-      t: (key, params) => format(DICTIONARIES[locale][key] ?? DICTIONARIES.ja[key] ?? key, params),
+      t: (key, params) => {
+        const current = DICTIONARIES[locale][key];
+        const fallback = locale === 'ja' ? undefined : DICTIONARIES.en[key];
+        return format(current ?? fallback ?? DICTIONARIES.ja[key] ?? key, params);
+      },
     };
   }, [locale, setLocale]);
 
