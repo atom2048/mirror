@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isOwner(uid) { return signedIn() && request.auth.uid == uid; }
+    function isPulseOwner() { return signedIn() && request.auth.uid == resource.data.uid; }
+    function isNewPulseOwner() { return signedIn() && request.auth.uid == request.resource.data.uid; }
+    match /users/{uid} { allow create: if isOwner(uid) && request.resource.data.id == uid; allow read, update, delete: if isOwner(uid); }
+    match /pulses/{pulseId} { allow read: if signedIn() && (resource.data.visibility == 'anonymousPublic' || request.auth.uid == resource.data.uid); allow create: if isNewPulseOwner() && request.resource.data.visibility in ['private', 'anonymousPublic']; allow update, delete: if isPulseOwner() && request.resource.data.uid == resource.data.uid; }
+    match /resonances/{resonanceId} { allow read: if signedIn() && request.auth.uid == resource.data.uid; allow create: if signedIn() && request.auth.uid == request.resource.data.uid; allow update, delete: if signedIn() && request.auth.uid == resource.data.uid; }
+    match /mirrorCards/{mirrorCardId} { allow read: if signedIn() && (request.auth.uid == resource.data.uid || resource.data.visibility == 'anonymousPublic'); allow create: if signedIn() && request.auth.uid == request.resource.data.uid; allow update, delete: if signedIn() && request.auth.uid == resource.data.uid; }
+    match /constellations/{constellationId} { allow read: if signedIn(); allow write: if false; }
+    match /reports/{reportId} { allow create: if signedIn() && request.auth.uid == request.resource.data.reporterUid; allow read: if signedIn() && request.auth.uid == resource.data.reporterUid; allow update, delete: if false; }
+    match /reactions/{reactionId} { allow read: if signedIn(); allow create: if signedIn() && request.auth.uid == request.resource.data.fromUid; allow update, delete: if signedIn() && request.auth.uid == resource.data.fromUid; }
+  }
+}
